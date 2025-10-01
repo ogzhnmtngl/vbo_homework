@@ -9,7 +9,7 @@ wget https://raw.githubusercontent.com/erkansirin78/datasets/master/Wine.csv
 ```
 
 ## Docker Login & Docker Pull
-`.yaml` dosyası içerisinde bulunan imagelar **DockerHub** üzerinde bulunan repodan geldiği için önce login olmak gerekiyor. Sonrasında containerları ayağa kaldırmak için gereki imageları dockerhub üzerinde bulunan repodan geçkmek gerekiyor.
+`.yaml` dosyası içerisinde bulunan imagelar **DockerHub** üzerinde bulunan repodan geldiği için önce login olmak gerekiyor. Sonrasında containerları ayağa kaldırmak için gereki imageları dockerhub üzerinde bulunan repodan çekmek gerekiyor.
 
 ```bash
 docker login
