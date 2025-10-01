@@ -27,7 +27,7 @@ docker compose up -d
 
 docker ps
 ```
-![docker-compose](images/docker-compose.png)
+![docker-compose](images/compose-up.png)
 
 Docker ps ile 1 masternode 2 slave ve 1 postgresql containerlarını görebiliyoruz.
 
