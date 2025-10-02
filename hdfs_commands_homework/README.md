@@ -1,6 +1,6 @@
 # hdfs_commands_homework
 
-cd komutu ile .yaml dosyasının bulunduğu klasöre giriyoruz. sonrasında .yaml dosyasında dataops klasörü user local olarak belirtildiği için hadoop clustera aktaracağımız dosyayı dataops klasörüne indirmemiz gerekiyor. 
+.yaml dosyasının bulunduğu klasöre cd komutuyla girilir. Dosya yolunda dataops klasörü local olarak tanımlandığından, Hadoop cluster’a aktarılacak dosya önce bu klasöre indirilir ve ardından cluster’a yüklenir.
 
 ```bash
 cd 00_big_data_playgrounds/dataops
@@ -9,7 +9,7 @@ wget https://raw.githubusercontent.com/erkansirin78/datasets/master/Wine.csv
 ```
 
 ## Docker Login & Docker Pull
-`.yaml` dosyası içerisinde bulunan imagelar **DockerHub** üzerinde bulunan repodan geldiği için önce login olmak gerekiyor. Sonrasında containerları ayağa kaldırmak için gereki imageları dockerhub üzerinde bulunan repodan çekmek gerekiyor.
+.yaml dosyası içerisinde tanımlı imagelar DockerHub reposundan geldiği için öncelikle DockerHub’a login olmak gerekiyor. Sonrasında containerları ayağa kaldırmak için gerekli imagelar ilgili repodan çekilerek çalıştırılıyor.
 
 ```bash
 docker login
@@ -28,7 +28,7 @@ docker compose up -d
 ```
 ![docker-compose](images/compose-up.png)
 
-docker ps  komutu ile 1 masternode 2 slave ve 1 postgresql containerlarını görebiliyoruz.
+Kurulum tamamlandıktan sonra, aşağıdaki komut ile çalışan containerlar görüntülenebilir:
 
 ```bash
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
@@ -38,16 +38,17 @@ docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
 
 ## Hadoop ortamına bağlanma
 
-exec -it bash komutuyla cluster-muster master node a bağlanıp hadoop cli ye geçiş yapıyoruz. 
+Master Node üzerinde işlem yapabilmek için ilgili container’a aşağıdaki komut ile bağlanılır:
 
 ```bash
 docker exec -it cluster-master bash
 
 ```
+Bu komut ile cluster-master container ına giriş yapılır. Ardından Hadoop komut satırı arayüzüne (CLI) erişim sağlanarak gerekli Hadoop komutları çalıştırılabilir.
 
 ### İşlem yapacağımız klasörleri oluşturma
 
-hadoop cliye geçiş yaptıktan sonra hdfs içerisinde odev klasörlerini oluşturmak için -mkdir komutunu kullanıyoruz.
+Hadoop CLI’ye giriş yaptıktan sonra, HDFS içerisinde klasör oluşturmak için -mkdir komutu kullanılır. Örneğin, ödev klasörlerini oluşturmak için:
 
 ```bash
 
@@ -59,7 +60,9 @@ hdfs dfs -mkdir -p /tmp/hdfs_odev
 
 ### Masternode ui üzerinde görüntüleme 
 
-Masternode ui üzerinde oluşturduğumuz dosyaları görüntülemek için öncelikle vm üzerinde çalışan konteynırlara dışardan ulaşmak için port-forwarding yapmamız gerekiyor. VM kullandığımız için bu işlem gerekli
+Master Node UI üzerinden HDFS’de oluşturduğumuz dosyaları görüntüleyebilmek için, VM üzerinde çalışan containerlara dışarıdan erişim sağlanması gerekir.
+
+Bu erişimi sağlamak için port-forwarding işlemi uygulanır. VM ortamı kullanıldığından, ilgili portlar host makineye yönlendirilerek web arayüzüne erişim mümkün hale gelir.
 
 ![forwarding](images/forwarding.png)
 
@@ -68,8 +71,7 @@ Masternode ui üzerinde oluşturduğumuz dosyaları görüntülemek için öncel
 
 ### Wine.csv dosyasını localden hadoop'a aktarma
 
-Dosyayı localden hadoop ortamına aktarmak için aşağıdaki komutları kullanabiliriz.
-
+Local ortamdan Hadoop HDFS’e Wine.csv dosyasını aktarmak için aşağıdaki komutlar kullanılabilir:
 
 ```bash
 
@@ -80,9 +82,10 @@ Dosyayı localden hadoop ortamına aktarmak için aşağıdaki komutları kullan
 ![put](images/put.png)
 
 ![masternodeui](images/ui2.png)
+
 ### Wine.csv dosyasını tmp/hdfs_odev klasörüne kopyalama
 
-Dosyayı hadoop ortamında kopyalamak için -cp komutunu kullanabiliriz.
+HDFS üzerinde bir dosyayı veya klasörü başka bir dizine kopyalamak için -cp komutu kullanılır. 
 
 ```bash
 
@@ -96,7 +99,7 @@ Dosyayı hadoop ortamında kopyalamak için -cp komutunu kullanabiliriz.
 
 ### HDFS üzerinden dosyayı silme 
 
-Hadoop üzerinde dosyayı trashe gitmeden tamamen silmek için -skiptrash kullanmamız gerekiyor.
+Hadoop HDFS’de bir dosyayı (Trash) gitmeden tamamen silmek için -skipTrash parametresi kullanılır.
 
 ```bash
 
