@@ -99,7 +99,7 @@ HDFS üzerinde bir dosyayı veya klasörü başka bir dizine kopyalamak için -c
 
 ### HDFS üzerinden dosyayı silme 
 
-Hadoop HDFS’de bir dosyayı (Trash) gitmeden tamamen silmek için -skipTrash parametresi kullanılır.
+Hadoop HDFS’de bir dosyayı Trash gitmeden tamamen silmek için -skipTrash parametresi kullanılır. Eğer sadece -rm parametresi kullanırsak trash dizinine taşınır. Burada bir süre saklandıktan sonra silinir. 
 
 ```bash
 
