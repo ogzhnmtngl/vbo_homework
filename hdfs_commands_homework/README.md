@@ -25,16 +25,13 @@ docker pull veribilimiokulu/ubuntu_hadoop_hive_sqoop:3.0
 ```bash
 docker compose up -d
 
-docker ps
 ```
 ![docker-compose](images/compose-up.png)
 
 docker ps  komutu ile 1 masternode 2 slave ve 1 postgresql containerlarını görebiliyoruz.
 
 ```bash
-docker compose up -d
-
-docker ps
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
 ```
 
 ![docker-ps](images/docker-ps.png)
