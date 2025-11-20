@@ -87,8 +87,8 @@ spark-submit   --packages org.apache.hadoop:hadoop-aws:3.3.0   homework_windowed
 
 ##  Sonuç
 
--   Kafka → MinIO data stream
--   Spark → 10-minute sliding window aggregations
+-   Kafka - MinIO data stream
+-   Spark - 10-minute sliding window aggregations
 -   CO & Humidity ortalamaları hesaplandı
 -   Tam gerçek zamanlı IoT pipeline başarıyla çalıştı
 
