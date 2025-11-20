@@ -24,6 +24,7 @@ MinIO UI: http://127.0.0.1:9001\
 - Password: Ankara06
 
 IoT verilerini saklamak için bucket oluşturulur.
+
 Bucket oluştur:
 
     datasets 
