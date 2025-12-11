@@ -68,6 +68,6 @@ FROM staging.orders o
 JOIN staging.order_items oi ON o.order_id = oi.order_item_order_id
 JOIN staging.products p ON oi.order_item_product_id = p.product_id;
 ```
-![airflow1.png](/airflow1.png)
-![output.png](/output.png)
-![airflow2.png](/airflow2.png)
+![airflow1.png](airflow1.png)
+![output.png](output.png)
+![airflow2.png](airflow2.png)
