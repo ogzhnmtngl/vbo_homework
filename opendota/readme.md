@@ -1,8 +1,8 @@
 # Gerçek Zamanlı Dota 2 Veri Analitiği Hattı (Real-Time Data Pipeline)
 
-Bu proje, dünyaca ünlü MOBA oyunu Dota 2'den akan canlı maç verilerini işleyen, depolayan ve görselleştiren uçtan uca (end-to-end) bir Büyük Veri Mühendisliği projesidir.
+Bu proje, dünyaca ünlü MOBA oyunu Dota 2'den akan canlı maç verilerini işleyen, depolayan ve görselleştiren uçtan uca görselleştiren bir data engineering projesidir.
 
-Proje, dağınık ve ham veriyi anlamlı iş içgörülerine (Business Insights) dönüştürmek için Lambda Mimarisi prensiplerini ve modern veri yığınını (Modern Data Stack) kullanır.
+Proje, dağınık ve ham veriyi anlamlı iş içgörülerine (Business Insights) dönüştürmek için Lambda Mimarisi ve modern veri yığınını (Modern Data Stack) kullanır.
 
 ## Mimari (Architecture)
 
@@ -29,7 +29,7 @@ Visualization       Grafana                       Gerçek zamanlı dashboard, KP
 
 ## Tablo: `public_matches`
 
-Bu tablo, Kafka'dan gelen ham maç verisinin temizlenmiş, dönüştürülmüş ve iş birimlerinin (Business Units) analiz ve sorgulama yapabilmesi için hazır hale getirilmiş versiyonudur.
+Bu tablo, Kafka'dan gelen ham maç verisinin temizlenmiş, dönüştürülmüş ve iş birimlerinin analiz ve sorgulama yapabilmesi için hazır hale getirilmiş versiyonudur.
 
 ### Tablo Yapısı
 
